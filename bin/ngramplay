@@ -1,0 +1,2 @@
+echo dirname $0
+# java -jar target/ngramplay-*-standalone.jar "$@"

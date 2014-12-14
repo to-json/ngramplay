@@ -1,0 +1,5 @@
+﻿Something to ignore
+*** START OF THIS PROJECT GUTENBERG TEST ***
+The truth
+*** END OF THIS PROJECT GUTENBERG TEST ***
+Something else to ignore
