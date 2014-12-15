@@ -15,12 +15,12 @@
 ;;; data format to be consistent. 
 (def example-results {["a" "cat"] #{"ran" "walked"} ["cat" "ran"] #{"up"}})
 
-(deftest assoc-trigram-merges-a-trigram-into-results
-  (is (= (assoc-trigram example-results ["a" "cat" "jumped"])
+(deftest assoc-ngram-merges-a-ngram-into-results
+  (is (= (assoc-ngram example-results ["a" "cat" "jumped"])
          {["cat" "ran"] #{"up"}, ["a" "cat"] #{"ran" "jumped" "walked"}}))
-  (is (= (assoc-trigram example-results ["a" "cat" "ran"])
+  (is (= (assoc-ngram example-results ["a" "cat" "ran"])
          {["cat" "ran"] #{"up"}, ["a" "cat"] #{"ran" "walked"}}))
-  (is (= (assoc-trigram example-results ["no" "cat" "ran"])
+  (is (= (assoc-ngram example-results ["no" "cat" "ran"])
          {["cat" "ran"] #{"up"}, ["a" "cat"] #{"ran" "walked"}, ["no" "cat"] #{"ran"}})))
 
 (deftest assoc-line-merges-a-line-into-results

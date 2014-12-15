@@ -28,8 +28,8 @@
   "Splits a line into individual 'words', treating punctuation as letters"
   (s/split (s/trim line) #"\s"))
 
-(defn assoc-trigram [results ngram]
-  "Merge an individual trigram into the result set so far"
+(defn assoc-ngram [results ngram]
+  "Merge an individual ngram into the result set so far"
   (let [key (vec (butlast ngram))
         val (last ngram)]
     (if (contains? results key)
@@ -44,7 +44,7 @@
         base-words (words line)
         last-n (vec (take-last (- ngram-size 1) base-words))
         wordlist (remove nil? (concat holdover base-words))]
-    (assoc (reduce assoc-trigram results (partition ngram-size 1 wordlist))
+    (assoc (reduce assoc-ngram results (partition ngram-size 1 wordlist))
       :holdover last-n)))
 
 (defn build-data-set [filename ngram-size]
